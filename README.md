@@ -14,9 +14,3 @@ The `memory_interface` library defines common interfaces used by the `mem_rus` p
 - Comprehensive simulation of DDR memory systems.
 - Modular design: the `memory_interface` library ensures reusability and clarity.
 - Extensible for additional memory models or interfaces.
-
-## Usage
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/rust-ddr-simulator.git
-   cd rust-ddr-simulator
