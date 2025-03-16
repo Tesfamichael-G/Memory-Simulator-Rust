@@ -1,0 +1,12 @@
+{
+  "trace_type": "memory",
+  "trace_path": "./trace/memory/rt.250k",
+  "mem_spec_path": "./spec/ddr/ddr4/JEDEC_DDR4_2Gb_x16_2400P.json",
+  "cpu_spec_path": "NA",
+  "address_mapping_string": "ROW_RANK_BANK_BANK-GROUP_CHAN_COL",
+  "use_trace_plugin": true,
+  "trace_plugin_path": "../reader_plugin/target/x86_64-pc-windows-msvc/release/reader_plugin.dll",
+  "queueing_policy": "per_rank",
+  "scheduling_policy": "frfcfs"
+}
+

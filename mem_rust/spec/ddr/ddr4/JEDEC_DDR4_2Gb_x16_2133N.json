@@ -1,0 +1,42 @@
+{
+  "organization": {
+    "bank": 4,
+    "bank_group": 2,
+    "channel": 1,
+    "column": 1024,
+    "dq": 16,
+    "rank": 1,
+    "row": 16384,
+    "size": 2048
+  },
+  "timing": {
+    "bl": 4,
+    "ccdl": 6,
+    "ccds": 4,
+    "cke": 6,
+    "ckesr": 7,
+    "cl": 14,
+    "cwl": 11,
+    "faw": 32,
+    "freq": 1066,
+    "ras": 36,
+    "rate": 2133,
+    "rc": 50,
+    "rcd": 14,
+    "refi": 8315,
+    "rfc": 587,
+    "rfc2": 374,
+    "rfc4": 278,
+    "rp": 14,
+    "rrdl": 7,
+    "rrds": 6,
+    "rtp": 8,
+    "rtrs": 2,
+    "tck": 0.9376465082168579,
+    "wr": 16,
+    "wtrl": 8,
+    "wtrs": 3,
+    "xp": 7,
+    "xs": 598
+  }
+}

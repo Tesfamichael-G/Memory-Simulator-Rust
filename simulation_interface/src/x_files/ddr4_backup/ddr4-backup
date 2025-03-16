@@ -1,0 +1,176 @@
+dd4_timing.rs
+// use serde::Deserialize;
+//
+// // DDR4 specific parameters
+// #[derive(Deserialize)]
+// pub struct DDR4Timing {
+//     pub ccds: u16,
+//     pub ccdl: u16,
+//
+//     pub rrds: u16,
+//     pub rrdl: u16,
+//
+//     pub wtrs: u16,
+//     pub wtrl: u16,
+//
+//     pub faw: u16,
+//
+//     pub rfc: u16,
+//     pub rfc2:u16,
+//     pub rfc4: u16,
+//
+//     pub refi: u32,
+//
+//     pub xs: u16,
+//     // pub pd: u16,
+// }
+//
+//
+// // tRPRE = 1
+// // tWPRE = 1
+//
+// // tWR2 = 19
+//
+//
+// impl  Default for DDR4Timing{  //8Gb_x8_2400R
+//     fn default() -> Self {
+//         DDR4Timing {
+//             ccds: 4,
+//             ccdl: 6,
+//
+//             rrds: 4,
+//             rrdl: 6,
+//
+//             wtrs: 3,
+//             wtrl: 9,
+//
+//             faw: 26,
+//
+//             rfc: 420,
+//             rfc2:312,
+//             rfc4: 192,
+//
+//             refi: 9360,
+//             xs: 432,
+//         }
+//     }
+// }
+
+// use std::collections::HashMap;
+// use std::{fs, io};
+// use serde_json::json;
+//
+// use crate::memory_model::ddr::{Org, Power,Timing };
+//
+//
+// // pub fn from_default() -> io::Result<Timing> {
+// //
+// //   let mut timing = Timing::default();
+// //   let org = Org::default();
+// //
+// //   timing.rrds = 4 ;
+// //   timing.rrdl = 6;
+// //
+// //   Ok(timing)
+// // }
+//
+// // pub fn from_spec(org: &Org, mut t: Timing) -> io::Result<Timing> {
+// //
+// //   (t.faw, t.rrdl, t.rrds) = match (org.dq, t.rate) {
+// //     (4, 1600) => (16, 5, 4),
+// //     (4, 1866) => (16, 5, 4),
+// //     (4, 2133) => (16, 6, 4),
+// //     (4, 2400) => (16, 6, 4),
+// //     (4, 2666) => (16, 7, 4),
+// //     (4, 2933) => (16, 8, 4),
+// //     (4, 3200) => (16, 8, 4),
+// //
+// //     (8, 1600) => (20, 5, 4),
+// //     (8, 1866) => (22, 5, 4),
+// //     (8, 2133) => (23, 6, 4),
+// //     (8, 2400) => (26, 6, 4),
+// //     (8, 2666) => (28, 7, 4),
+// //     (8, 2933) => (31, 8, 4),
+// //     (8, 3200) => (34, 8, 4),
+// //
+// //     (16, 1600) => (28, 6, 5),
+// //     (16, 1866) => (28, 6, 5),
+// //     (16, 2133) => (32, 7, 6),
+// //     (16, 2400) => (36, 8, 7),
+// //     (16, 2666) => (40, 9, 8),
+// //     (16, 2933) => (44, 10, 8),
+// //     (16, 3200) => (48, 11, 9),
+// //     _ => (0, 0, 0)
+// //   };
+// //
+// //
+// //
+// //
+// //   Ok(t)
+// // }
+
+
+        DDR4
+                    nXP,        nCKESR,      nXS, cke
+        {1600,       5,           5,          0,
+        {1866,       6,           6,          0,
+        {2133,       7,           7,          0,
+        {2666,       8            8,          0
+        {2933        9            9
+        {2400,       8,           7,          0,
+        {3200,      10,           8,          0,
+
+       DDR3
+                       nXP,     nCKESR,      nXS,  cke
+        {800,            3,        4,          0,
+        {1066,           4,        4,          0,
+        {1333,           4,        5,          0,    // 5 1 4 1Gb x8
+                         nXP,     nCKESR,      nXS,  cke
+        {1600,           5,        5,          0,    4 ok
+        {1866,           6,        6,          0,    5 ok
+        {2133,           7,        7,          0,    6 ok
+        {2400            8         7           0     6 ok
+        {2933            9         9           0     8 ok
+        {3200            10        9           0     8 ok
+
+[power]
+DDR4 Typical Current Values
+IDD0:   60 mA
+IDD2P:  28 mA
+IDD2N:  42 mA
+IDD3P:  32 mA
+IDD3N:  47 mA
+IDD4W: 105 mA
+IDD4R: 115 mA
+IDD5B: 220 mA
+IDD6:   12 mA
+
+                   [dd4-3200-8Gb-x4]   dd4-3200-8Gb-x8    [dd4-3200-8Gb-x16]
+                   VDD = 1.2           VDD = 1.2          VDD = 1.2
+IDD0:   60 mA      IDD0 = 52           IDD0 = 57          DD0 = 95
+IDD2P:  28 mA      IPP0 = 3.0          IPP0 = 3.0         IPP0 = 4.0
+IDD2N:  42 mA      IDD2P = 25          IDD2P = 25         IDD2P = 25
+IDD3P:  32 mA      IDD2N = 37          IDD2N = 37         IDD2N = 37
+IDD3N:  47 mA      IDD3P = 38          IDD3P = 43         IDD3P = 47
+IDD4W: 105 mA      IDD3N = 47          IDD3N = 52         IDD3N = 56
+IDD4R: 115 mA      IDD4W = 130         IDD4W = 150        IDD4W = 278
+IDD5B: 220 mA      IDD4R = 143         IDD4R = 168        IDD4R = 302
+                   IDD5AB = 250        IDD5AB = 250       IDD5AB = 280
+IDD6:   12 mA      IDD6x = 30          IDD6x = 30         IDD6x = 30
+
+float frequency_factor = static_cast<float>(frequency) / 1600.0; // Normalize to base frequency (1600 MT/s)
+float density_factor = static_cast<float>(density) / 8192.0;    // Normalize to base density (8Gb)
+
+// Calculate currents
+float IDD0 = BASE_IDD0 * frequency_factor * density_factor;
+float IDD2P = BASE_IDD2P * frequency_factor * density_factor;
+float IDD2N = BASE_IDD2N * frequency_factor * density_factor;
+float IDD3P = BASE_IDD3P * frequency_factor * density_factor;
+float IDD3N = BASE_IDD3N * frequency_factor * density_factor;
+float IDD4W = BASE_IDD4W * frequency_factor * density_factor;
+float IDD4R = BASE_IDD4R * frequency_factor * density_factor;
+float IDD5B = BASE_IDD5B * frequency_factor * density_factor;
+float IDD6 = BASE_IDD6 * frequency_factor * density_factor;
+
+/
+

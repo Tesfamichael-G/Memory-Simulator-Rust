@@ -1,0 +1,40 @@
+{
+  "ID": "MICRON_8Gb_DDR4-2400_8bit_R",
+  "DDR_TYPE": "DDR4",
+  "ORG": {
+    "SIZE": 8192,
+    "DQ": 8,
+    "Channel": 1,
+    "Rank": 1,
+    "Bank": 8,
+    "Row": 65536,
+    "Column": 2048
+  },
+  "TIMING": {
+    "RATE": 2400,
+    "FREQ": 1200,
+    "TCK": 0.833,
+    "BL": 8,
+    "CCD": 4,
+    "RTRS": 1,
+    "CL": 17,
+    "RCD": 17,
+    "RP": 17,
+    "CWL": 12,
+    "RAS": 37,
+    "RC": 54,
+    "RTP": 9,
+    "WTR": 6,
+    "WR": 14,
+    "RRD": 4,
+    "FAW": 21,
+    "RFC": 390,
+    "REFI": 7800,
+    "PD": 1,
+    "XP": 3,
+    "XPDLL": 10,
+    "CKESR": 6,
+    "XS": 512,
+    "XSDLL": 512
+  }
+}

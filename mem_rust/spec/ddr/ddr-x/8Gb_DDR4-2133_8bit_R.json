@@ -1,0 +1,40 @@
+{
+  "ID": "MICRON_8Gb_DDR4-2133_8bit_R",
+  "DDR_TYPE": "DDR4",
+  "ORG": {
+    "SIZE": 8192,
+    "DQ": 8,
+    "Channel": 1,
+    "Rank": 1,
+    "Bank": 8,
+    "Row": 65536,
+    "Column": 2048
+  },
+  "TIMING": {
+    "RATE": 2133,
+    "FREQ": 1066.5,
+    "TCK": 0.938,
+    "BL": 8,
+    "CCD": 4,
+    "RTRS": 1,
+    "CL": 15,
+    "RCD": 15,
+    "RP": 15,
+    "CWL": 11,
+    "RAS": 35,
+    "RC": 50,
+    "RTP": 8,
+    "WTR": 5,
+    "WR": 12,
+    "RRD": 4,
+    "FAW": 20,
+    "RFC": 350,
+    "REFI": 7800,
+    "PD": 1,
+    "XP": 3,
+    "XPDLL": 10,
+    "CKESR": 6,
+    "XS": 512,
+    "XSDLL": 512
+  }
+}
